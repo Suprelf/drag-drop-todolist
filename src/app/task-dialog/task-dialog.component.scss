@@ -1,0 +1,55 @@
+.add-task-wrap {
+    width: 400px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: space-between;
+    gap: 8px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.input-paragraph {
+    flex-grow: 16;
+}
+
+.add {
+    flex-grow: 6;
+    background-color: rgba(0, 255, 55, 0.575);
+    height: 36px;
+}
+
+.delete {
+    background-color: rgba(255, 0, 0, 0.575);
+    height: 36px;
+    flex-grow: 2;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: unset;
+    position: absolute;
+    left: 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 100px;
+}
+

@@ -1,0 +1,63 @@
+<mat-card class="task-container" [ngClass]="{
+    'done': status.value == 'Done',
+    'failed': status.value == 'Failed',
+    'active': status.value == 'Active',
+    'daily': status.value == 'Daily'
+}">
+
+    <div class="task-header">
+        <div class="task-header-name">{{name}}</div>
+        <ng-content class="task-header-drag"></ng-content>
+    </div>
+
+    <div class="task-content">
+        <div class="task-content-scroll">
+            <p *ngFor="let par of paragraphs" class="task-content-paragraph">
+                {{par}}
+            </p>
+        </div>
+    </div>
+
+    <div class="task-footer">
+        <div class="task-footer-date">
+            <p>Up to:</p>
+            <p>{{date | date:"E, dd.MM.yy"}}</p>
+        </div>
+        <div class="task-footer-status">
+            <p>Status:</p>
+            <p>
+                <mat-form-field class="status-select">
+                    <mat-select disableRipple [formControl]="status">
+
+                        <mat-select-trigger *ngIf="(status.value == 'Done')" class="status-select-result"
+                            style="font-size: 16px;">
+                            Done<mat-icon>check</mat-icon>
+                        </mat-select-trigger>
+                        <mat-option value="Done">Done</mat-option>
+
+                        <mat-select-trigger *ngIf="(status.value == 'Failed')" class="status-select-result"
+                            style="font-size: 16px;">
+                            Failed<mat-icon>close</mat-icon>
+                        </mat-select-trigger>
+                        <mat-option value="Failed">Failed</mat-option>
+
+                        <mat-select-trigger *ngIf="(status.value == 'Active')" class="status-select-result"
+                            style="font-size: 16px;">
+                            Active<mat-icon style="font-size: 20px;">schedule</mat-icon>
+                        </mat-select-trigger>
+                        <mat-option value="Active">Active</mat-option>
+
+                        <mat-select-trigger *ngIf="(status.value == 'Daily')" class="status-select-result"
+                            style="font-size: 16px;">
+                            Daily
+                            <mat-icon>repeat</mat-icon>
+                        </mat-select-trigger>
+                        <mat-option value="Daily">Daily</mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </p>
+        </div>
+
+    </div>
+</mat-card>

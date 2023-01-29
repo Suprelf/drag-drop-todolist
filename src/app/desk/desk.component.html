@@ -1,0 +1,16 @@
+<div class="desk-container">
+
+  <mat-card class="task-container" (click)="openAddTaskDialog()">
+    <p id="add-title">Add new task</p>
+    <p id="add-plus">+</p>
+  </mat-card>
+
+  <app-desk-task class="desk-task" cdkDragBoundary=".desk-container" cdkDrag *ngFor="let task of Tasks"
+    [date]="task.date" [name]="task.name" [status_value]="task.status" [paragraphs]="task.paragraphs">
+
+    <div cdkDragHandle style="cursor: move;">
+      <mat-icon>rounded_corner</mat-icon>
+    </div>
+  </app-desk-task>
+
+</div>

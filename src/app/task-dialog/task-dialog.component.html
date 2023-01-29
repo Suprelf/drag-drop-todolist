@@ -1,0 +1,46 @@
+<div class="add-task-wrap">
+    <h2 mat-dialog-title>
+        <span>Add new task</span>
+    </h2>
+    <mat-dialog-content>
+        <form [formGroup]="AddTaskForm" class="container">
+            <mat-form-field>
+                <input matInput placeholder="Task name" formControlName="name">
+            </mat-form-field>
+
+            <div formArrayName="paragraphs">
+                <div *ngFor="let paragraph of ParagraphForm.controls; let i=index" [formGroupName]="i">
+
+                    <div class="actions add-paragraph">
+                        <mat-form-field class="input-paragraph">
+                            <input matInput placeholder="Paragraph" formControlName="text">
+                        </mat-form-field>
+
+                        <button mat-raised-button (click)="deleteParagraph(i)" class="delete">Delete</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <button mat-raised-button (click)="addParagraph()" class="add">Add paragraph</button>
+
+            <mat-form-field>
+                <input matInput placeholder="Date" formControlName="date">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select matInput placeholder="Status" formControlName="status">
+                    <mat-option value="Done">Done</mat-option>
+                    <mat-option value="Failed">Failed</mat-option>
+                    <mat-option value="Active">Active</mat-option>
+                    <mat-option value="Daily">Daily</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions class="actions">
+        <button mat-raised-button class="delete" mat-dialog-close>Close</button>
+        <button mat-raised-button class="add" (click)="addFormatedTask()" mat-dialog-close>Add task</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,57 @@
+<mat-card class="main-container">
+
+    <h3>REMINDER-3000</h3>
+
+    <div class="list-item-container">
+        <button class="list-item">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+
+        <button class="list-item">
+
+            <mat-icon>notifications</mat-icon>Notifications
+        </button>
+
+        <button class="list-item">
+            <mat-icon>calendar_today</mat-icon>Goals
+        </button>
+    </div>
+
+    <hr>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="list-exp-container"
+        id="nopadding">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Spaces
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="list-item-container">
+            <button class="list-item">
+                <mat-icon>table_chart</mat-icon>
+                <span>Everything</span>
+            </button>
+
+            <button class="list-item">
+                <mat-icon>repeat</mat-icon>
+                <span>Daily</span>
+            </button>
+
+            <button class="list-item">
+                <mat-icon>access_alarm</mat-icon>
+                <span>Urgent</span>
+            </button>
+
+            <button class="list-item">
+                <mat-icon>library_add</mat-icon>
+                <span>Add category</span>
+            </button>
+        </div>
+
+    </mat-expansion-panel>
+
+</mat-card>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
